@@ -54,6 +54,12 @@ Outputs a list with the following:
 - `$data` data.frame where rows are cells and columns represent the classification (`Classical1`, `Classical2`, `Mixed`, `Basal1`, or `Basal2`), normalized confidence score and normalized classification scores
 - `$singler_pred` SingleR raw output
 
+```
+out <- singler_subtype(mat, reference_file="references/singler_reference.RData")
+out$data
+out$singler_pred
+
+```
 
 ## Penalized gene set scoring for scRNA-seq
 
@@ -64,6 +70,11 @@ Building on Seurat's `AddModuleScore`, calculates the average expression level o
 Takes a Seurat object `dataset` and a named list of query genesets `genelists`, and outputs a Seurat object with scores added in the object meta data. 
 The new metadata columns will be named after the names of the query geneset list.
 Additional parameters change the penalty factor (`k`, `x0`) or the the number of expression bins for selecting the control genes (`nbin`) as in Seurat's `AddModuleScore`.
+
+```
+seurat_obj <- add_penalized_module_score(seurat_obj, genelists=named_list_of_genesets)
+seurat_obj[[names(named_list_of_genesets)]]
+```
 
 # Demo
 
@@ -78,6 +89,7 @@ R: <https://cran.r-project.org/>
 
 RStudio: <https://docs.posit.co/ide/user/>
 
+
 ## Dependencies
 
 To install the dependencies, type the following code sections into an `R` session:
@@ -91,7 +103,7 @@ install.packages("BiocManager")
 BiocManager::install("SingleR", version="3.18") 
 ```
 
-`add_penalized_module_score()`: Seurat, dplyr, ggplot2, Matrix
+`add_penalized_module_score()`: Seurat v5.1.0+, dplyr v1.1.4+, ggplot2 v3.5.2+, Matrix v1.6-4+
 
 ```         
 install.packages(c("dplyr", "Seurat", "ggplot2"))
@@ -100,10 +112,13 @@ install.packages("Matrix") # generally unneeded as Matrix usually comes pre-inst
 
 Installation of dependencies took under 5 minutes on an M5 MacBook Air with 24GB RAM running macOS Tahoe 26.5.2 at 1Gbps download.
 
+
 ## Run and Results
 
 Clone, or download and unzip the respository to your local computer. Open RStudio and open the `pancreatic_cancer_transcription_paper` directory as a project. Source `demo.R` in directory `demo` by opening the file in RStudio and selecting "Source" in the top right corner.
 
-If successful, the script will produce output files related to each function in a new directory called `demo_outputs/`, which should match the existing files in `demo_outputs_example/`.
+If successful, the script will produce output files related to each function in a new directory called `demo_outputs/`, which should match the existing files in `demo_output_example/`.
 
 Running `demo.R` took under 1 minute on an M5 MacBook Air with 24GB RAM running macOS Tahoe 26.5.2.
+
+

@@ -6,7 +6,7 @@ library(ggplot2)
 
 #### Set-up ####
 
-# demo bulk sample matrix
+# demo bulk TPM matrix
 bulk_mat <- readRDS("demo/bulk_demo.rds")
 
 # demo single cell Seurat object
@@ -25,8 +25,6 @@ dir.create("demo/demo_outputs")
 
 classifier_genes <- predict.class.bkr(mode="mat")
 writeLines(classifier_genes$gg, con="demo/demo_outputs/demo_bulk_classifier_genes.txt")
-
-predict.class.bkr(bulk_mat[classifier_genes$gg, ])
 
 pred <- predict.class.bkr(bulk_mat)
 write.csv(cbind(sample=colnames(bulk_mat), pred), file="demo/demo_outputs/demo_bulk_classifier_output.csv")
@@ -66,3 +64,4 @@ DimPlot(sc_obj, group.by="subtype", cols=c(Classical1="#1C6CAB", Basal1="#814C42
 FeaturePlot(sc_obj, features=c(paste0(names(cc.genes), "_penalized"), paste0(names(cc.genes), "_original"))) *
   theme(aspect.ratio=1, axis.ticks=element_blank(), axis.text=element_blank())
 dev.off()
+
