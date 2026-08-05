@@ -42,7 +42,7 @@ AddPenalizedModuleScore <- function(
   assay.old <- DefaultAssay(object = object)
   assay <- assay %||% assay.old
   DefaultAssay(object = object) <- assay
-  assay.data <- GetAssayData(object = object, assay = assay, slot = slot)
+  assay.data <- GetAssayData(object = object, assay = assay, layer = slot)
   features.old <- features
 
   if (is.null(x = features)) {

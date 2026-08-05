@@ -83,12 +83,13 @@ seurat_obj[[names(named_list_of_genesets)]]
 The demo analyses can be run on a standard computer with 16GB+ RAM and 4+ cores. We recommend using R version 4.3.0+. 
 While the demo has been tested specifically on Ubuntu 20.04 and macOS Tahoe 26.5.2, R and all relevant packages should be compatible with most modern Windows, Mac, and Linux operating systems.
 
-Install R and a development environment such as RStudio by following these instructions:
+Install R and the development environment RStudio by following these instructions:
 
 R: <https://cran.r-project.org/>
 
 RStudio: <https://docs.posit.co/ide/user/>
 
+Installation of R and Rstudio took around 2 minutes on an M5 MacBook Air with 24GB RAM running macOS Tahoe 26.5.2 at 1Gbps download.
 
 ## Dependencies
 
@@ -96,11 +97,11 @@ To install the dependencies, type the following code sections into an `R` sessio
 
 `predict.class.bkr()`: none
 
-`singler_subtype()`: SingleR v2.4.1 (from Bioconductor 3.18)
+`singler_subtype()`: SingleR v2.4.1+ (from Bioconductor 3.18+)
 
 ```
 install.packages("BiocManager")
-BiocManager::install("SingleR", version="3.18") 
+BiocManager::install("SingleR") 
 ```
 
 `add_penalized_module_score()`: Seurat v5.1.0+, dplyr v1.1.4+, ggplot2 v3.5.2+, Matrix v1.6-4+
@@ -110,14 +111,14 @@ install.packages(c("dplyr", "Seurat", "ggplot2"))
 install.packages("Matrix") # generally unneeded as Matrix usually comes pre-installed with R
 ```
 
-Installation of dependencies took under 5 minutes on an M5 MacBook Air with 24GB RAM running macOS Tahoe 26.5.2 at 1Gbps download.
+Installation of dependencies took under 2 minutes on an M5 MacBook Air with 24GB RAM running macOS Tahoe 26.5.2 at 1Gbps download.
 
 
 ## Run and Results
 
-Clone, or download and unzip the respository to your local computer. Open RStudio and open the `pancreatic_cancer_transcription_paper` directory as a project. Source `demo.R` in directory `demo` by opening the file in RStudio and selecting "Source" in the top right corner.
+Clone, or download and unzip the respository to your local computer. Open RStudio and using "File > Open Project...", open the `pancreatic_cancer_transcription_paper` directory as a project. In the "Files" tab, navigate to the `demo` directory and open `demo.R`. Source `demo.R` by selecting "Source" in the top right corner.
 
-If successful, the script will produce output files related to each function in a new directory called `demo_outputs/`, which should match the existing files in `demo_output_example/`.
+When successfully run, the script will produce output files related to each function in a new directory called `demo_outputs/`, which should match the existing files in `demo_output_example/`.
 
 Running `demo.R` took under 1 minute on an M5 MacBook Air with 24GB RAM running macOS Tahoe 26.5.2.
 
