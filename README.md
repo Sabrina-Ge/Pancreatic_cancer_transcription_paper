@@ -58,7 +58,6 @@ Outputs a list with the following:
 out <- singler_subtype(mat, reference_file="references/singler_reference.RData")
 out$data
 out$singler_pred
-
 ```
 
 ## Penalized gene set scoring for scRNA-seq
@@ -93,7 +92,7 @@ Installation of R and Rstudio took around 2 minutes on an M5 MacBook Air with 24
 
 ## Dependencies
 
-To install the dependencies, type the following code sections into an `R` session:
+The dependencies can be installed with following code sections in an `R` session:
 
 `predict.class.bkr()`: none
 
@@ -116,7 +115,12 @@ Installation of dependencies took under 2 minutes on an M5 MacBook Air with 24GB
 
 ## Run and Results
 
-Clone, or download and unzip the respository to your local computer. Open RStudio and using "File > Open Project...", open the `pancreatic_cancer_transcription_paper` directory as a project. In the "Files" tab, navigate to the `demo` directory and open `demo.R`. Source `demo.R` by selecting "Source" in the top right corner.
+**Option 1**
+Download and unzip the repository to your local computer. Open RStudio and using "File > Open Project...", open the `pancreatic_cancer_transcription_paper-main` directory as a project. In the "Files" tab, navigate to the `demo` directory and open `demo.R`. Source `demo.R` by selecting "Source" in the top right corner.
+
+**Option 2**
+Clone the repository, set `pancreatic_cancer_transcription_paper` as your working directory and run or source `demo/demo.R`.
+
 
 When successfully run, the script will produce output files related to each function in a new directory called `demo_outputs/`, which should match the existing files in `demo_output_example/`.
 
