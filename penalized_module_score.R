@@ -1,5 +1,6 @@
 library(Seurat)
 library(dplyr)
+library(ggplot2)
 library(Matrix)
 
 penalty_transform <- function(x, k = 20, x0 = 0.625) {
