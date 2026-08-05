@@ -20,18 +20,19 @@ source("penalized_module_score.R")
 # make output file folder
 dir.create("demo/demo_outputs")
 
+
 #### Single sample classifier for bulk RNA-seq ####
 
 classifier_genes <- predict.class.bkr(mode="mat")
 writeLines(classifier_genes$gg, con="demo/demo_outputs/demo_bulk_classifier_genes.txt")
+
+predict.class.bkr(bulk_mat[classifier_genes$gg, ])
 
 pred <- predict.class.bkr(bulk_mat)
 write.csv(cbind(sample=colnames(bulk_mat), pred), file="demo/demo_outputs/demo_bulk_classifier_output.csv")
 
 
 #### Correlation-based classifier for scRNA-seq ####
-
-#TODO: sanitize sc_obj
 
 mat <- sc_obj@assays$RNA@data
 out <- singler_subtype(mat, reference_file="references/singler_reference.RData")
