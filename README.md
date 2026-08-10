@@ -9,19 +9,19 @@ Sabrina Ge, Paul Tonon, Jingxiong Xu, Gun Ho Jang, Ferris Nowlan, Jimin Min, Kar
 
 # Repository Contents
 
-- [ssp_bkr.R](./ssp_bkr.R): `predict.class.bkr()` - single sample classifier of the updated transcriptional classification scheme for bulk RNA sequencing
-- [singler_subtype.R](./singler_subtype.R): `singler_subtype()` - correlation-based classifier for single cell RNA sequencing
-- [penalized_module_score.R](./penalized_module_score.R): `add_penalized_module_score()` - scores query gene sets (modules) by building upon Seurat's `AddModuleScore` to favour broad expression of query genes
-- [misc_functions.R](./misc_functions.R): functions for converting human to mouse homologues and generating program genelists
-- [references](./references): reference files needed for running previous functions
-- [scripts](/.scripts): code for recreating other major analyses in the paper
-- [demo](/.demo): demo files needed to run `predict.class.bkr()`, `singler_subtype()`, and `add_penalized_module_score()` on a small subset
+- [ssp_bkr.R](ssp_bkr.R): `predict.class.bkr()` - single sample classifier of the updated transcriptional classification scheme for bulk RNA sequencing
+- [singler_subtype.R](singler_subtype.R): `singler_subtype()` - correlation-based classifier for single cell RNA sequencing
+- [penalized_module_score.R](penalized_module_score.R): `add_penalized_module_score()` - scores query gene sets (modules) by building upon Seurat's `AddModuleScore` to favour broad expression of query genes
+- [misc_functions.R](misc_functions.R): functions for converting human to mouse homologues and generating program genelists
+- [references](references): reference files needed for running previous functions
+- [scripts](scripts): code for recreating other major analyses in the paper
+- [demo](demo): demo files needed to run `predict.class.bkr()`, `singler_subtype()`, and `add_penalized_module_score()` on a small subset
 
 # Novel functions for classification and scoring
 
 ## Single sample classifier for bulk RNA-seq
 
-[ssp_bkr.R](./ssp_bkr.R): `predict.class.bkr()`
+[ssp_bkr.R](ssp_bkr.R): `predict.class.bkr()`
 
 `mat` mode outputs a list of gene pairs used in the classifier
 
@@ -40,7 +40,7 @@ Other default parameters can be altered depending on the type of expression matr
 
 ## Correlation-based classifier for scRNA-seq
 
-[singler_subtype.R](./singler_subtype.R): `singler_subtype()`
+[singler_subtype.R](singler_subtype.R): `singler_subtype()`
 
 Uses correlation-based SingleR algorithm (see: https://bioconductor.org/packages/release/bioc/html/SingleR.html) to score and assign classification to single cells using a reference derived from bulk data.
 
@@ -63,7 +63,7 @@ out$singler_pred
 
 ## Penalized gene set scoring for scRNA-seq
 
-[penalized_module_score.R](./penalized_module_score.R): `add_penalized_module_score()`
+[penalized_module_score.R](penalized_module_score.R): `add_penalized_module_score()`
 
 Building on Seurat's `AddModuleScore`, calculates the average expression level of each query gene set per single cell when compared with randomly selected matched control features. The average expression is additionally penalized based on the fraction of genes whose expression exceeds the mean expression of matched control genes. Fewer genes with expression exceeding the control leads to greater penalization, allowing higher scores for more consistent query gene set expression.
 
@@ -123,7 +123,7 @@ Download and unzip the repository to your local computer. Open RStudio and using
 Clone the repository, set `pancreatic_cancer_transcription_paper` as your working directory and run or source `demo/demo.R`.
 
 
-When successfully run, the script will produce output files related to each function in a new directory called `demo_outputs/`, which should match the existing files in [`demo_output_example/`](/.demo/demo_output_example/).
+When successfully run, the script will produce output files related to each function in a new directory called `demo_outputs/`, which should match the existing files in [`demo_output_example/`](demo/demo_output_example/).
 
 Running `demo.R` took under 1 minute on an M5 MacBook Air with 24GB RAM running macOS Tahoe 26.5.2.
 
