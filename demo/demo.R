@@ -58,10 +58,10 @@ names(sc_obj@meta.data)[match(paste0("cc.genes", 1:2), names(sc_obj@meta.data))]
 #### sc Visualization ####
 
 pdf("demo/demo_outputs/demo_sc_plots.pdf")
-DimPlot(sc_obj, group.by="subtype", cols=c(Classical1="#1C6CAB", Basal1="#814C42", Classical2="#A4C0E5", Basal2="#FF7311", Mixed="grey40")) + 
-  ggtitle("singler_subtype") + 
-  theme(aspect.ratio=1, axis.ticks=element_blank(), axis.text=element_blank())
-FeaturePlot(sc_obj, features=c(paste0(names(cc.genes), "_penalized"), paste0(names(cc.genes), "_original"))) *
-  theme(aspect.ratio=1, axis.ticks=element_blank(), axis.text=element_blank())
+print(DimPlot(sc_obj, group.by="subtype", cols=c(Classical1="#1C6CAB", Basal1="#814C42", Classical2="#A4C0E5", Basal2="#FF7311", Mixed="grey40")) + 
+        ggtitle("singler_subtype") + 
+        theme(aspect.ratio=1, axis.ticks=element_blank(), axis.text=element_blank()))
+print(FeaturePlot(sc_obj, features=c(paste0(names(cc.genes), "_penalized"), paste0(names(cc.genes), "_original"))) *
+        theme(aspect.ratio=1, axis.ticks=element_blank(), axis.text=element_blank()))
 dev.off()
 

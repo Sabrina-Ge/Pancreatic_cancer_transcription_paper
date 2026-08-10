@@ -6,6 +6,7 @@ Sabrina Ge, Paul Tonon, Jingxiong Xu, Gun Ho Jang, Ferris Nowlan, Jimin Min, Kar
 
 <https://www.biorxiv.org/content/10.64898/2026.04.29.721655v1>
 
+
 # Repository Contents
 
 - [ssp_bkr.R](./ssp_bkr.R): `predict.class.bkr()` - single sample classifier of the updated transcriptional classification scheme for bulk RNA sequencing
@@ -68,7 +69,7 @@ Building on Seurat's `AddModuleScore`, calculates the average expression level o
 
 Takes a Seurat object `dataset` and a named list of query genesets `genelists`, and outputs a Seurat object with scores added in the object meta data. 
 The new metadata columns will be named after the names of the query geneset list.
-Additional parameters change the penalty factor (`k`, `x0`) or the the number of expression bins for selecting the control genes (`nbin`) as in Seurat's `AddModuleScore`.
+Additional parameters change the penalty factor (`k`, `x0`) or the number of expression bins for selecting the control genes (`nbin`) as in Seurat's `AddModuleScore`.
 
 ```
 seurat_obj <- add_penalized_module_score(seurat_obj, genelists=named_list_of_genesets)
@@ -92,7 +93,7 @@ Installation of R and Rstudio took around 2 minutes on an M5 MacBook Air with 24
 
 ## Dependencies
 
-The dependencies can be installed with following code sections in an `R` session:
+The dependencies can be installed with the following code sections in an `R` session:
 
 `predict.class.bkr()`: none
 
@@ -122,7 +123,7 @@ Download and unzip the repository to your local computer. Open RStudio and using
 Clone the repository, set `pancreatic_cancer_transcription_paper` as your working directory and run or source `demo/demo.R`.
 
 
-When successfully run, the script will produce output files related to each function in a new directory called `demo_outputs/`, which should match the existing files in `demo_output_example/`.
+When successfully run, the script will produce output files related to each function in a new directory called `demo_outputs/`, which should match the existing files in [`demo_output_example/`](/.demo/demo_output_example/).
 
 Running `demo.R` took under 1 minute on an M5 MacBook Air with 24GB RAM running macOS Tahoe 26.5.2.
 
